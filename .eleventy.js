@@ -86,10 +86,10 @@ function examine(file, options) {
   let re = new RegExp(delimiter, 'g')
   file.content = file.content.replace(re, '')
 
-  console.log('** first:', first)
-  console.log('** last:', last)
-  console.log('** file:', file)
-  console.log('** options', options)
+//   console.log('** first:', first)
+//   console.log('** last:', last)
+//   console.log('** file:', file)
+//   console.log('** options', options)
 
 
   return file

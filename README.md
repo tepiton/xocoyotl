@@ -174,4 +174,15 @@ no excerpt. Otherwise the excerpt consists of:
 - the text between the start of text to the marker
 - Up to 256 characters
 
+The `<!-- excerpt -->` marker is removed.
+
+Over in `src/index.11ty.js` we do
+the rendering of each 'card'.
+
+- if there's an `<img>`, it becomes the
+  body of the card. TODO Add text to the card.
+- if it's a one-line post, it has stars as the
+  as a title -- in which case the post is the body
+- actually we always display the excerpt.
+
 
