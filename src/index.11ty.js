@@ -9,9 +9,11 @@ module.exports = class Home {
     }
   }
 
-  getSummary(post) {
+  getXSummary(post) {
     let retval = 'oops'
-    let summary = post.data.summary
+    let summary = post.data.excerpt
+
+//      console.log('--gsPost', post)
 
     let re = /<img\s+class="tepiton"\s+src="([^"]+)"/
     let m = post.templateContent.match(re)
@@ -32,30 +34,47 @@ module.exports = class Home {
     return retval
   }
 
+  getSummary(post) {
+    let retval = post.data.excerpt || 'oops'
+
+    let re = /<img\s+class="tepiton"\s+src="([^"]+)"/
+    let m = post.templateContent.match(re)
+
+    if (m)
+      retval = `<img src="${m[1]}">`
+
+    return retval
+  }
 
   renderPost(post) {
-    let body = ''
-    let summary = post.data.summary
-    let header = `<header><a href="${post.url}">${post.data.title}</a></header>`
-    let footer = `<footer><a href="${post.data.draft}"># ${post.date.toDateString()}</a></footer>`
-    let section = `<a href="${post.url}">${this.getSummary(post)}</a>`
+    let summary = this.getSummary(post)
+    summary = this.markdown2(summary)
 
-//     if (post.data.title === stars) {
-//       header = ``
-//       footer = ``
-//       section = `<blockquote>${section}</blockquote>`
-//     }
+
+    if (post.data.newlines) {
+      summary = summary.replace(/\n/g, '<br>\n')
+    }
+
+    let body = ''
+    let header = `<header><a href="${post.url}">${post.data.title}</a></header>`
+    let section = `<section><a href="${post.url}">${summary}</section></a>`
+    let footer = `<footer><a href="${post.data.draft}"># ${post.date.toDateString()}</a></footer>`
+
+
+    if (post.data.title === stars) {
+      header = ``
+      footer = ``
+    }
 
     body =
-  `     <li>
+    `     <li>
           <article>
             ${header}
-            <section>${section}</section>
-            ${footer}
+            ${section}
         </article>
        </li>`
 
-  return body
+    return body
   }
 
   render(data) {

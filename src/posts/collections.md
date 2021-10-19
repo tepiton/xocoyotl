@@ -20,7 +20,7 @@ of posts about books.
 A third could be
 all the posts
 in a particular directory.
-
+<!-- excerpt -->
 Eleventy gives you two ways to create collections:
 
 - [implicitly](#tag-based-collections), with tags in the front matter
