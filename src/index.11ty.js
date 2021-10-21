@@ -50,16 +50,14 @@ module.exports = class Home {
     let summary = this.getSummary(post)
     summary = this.markdown2(summary)
 
-
     if (post.data.newlines) {
       summary = summary.replace(/\n/g, '<br>\n')
     }
 
     let body = ''
-    let header = `<header><a href="${post.url}">${post.data.title}</a></header>`
+    let header  = `<header><a href="${post.url}">${post.data.title}</a></header>`
     let section = `<section><a href="${post.url}">${summary}</section></a>`
-    let footer = `<footer><a href="${post.data.draft}"># ${post.date.toDateString()}</a></footer>`
-
+    let footer  = `<footer><a href="${post.data.draft}"># ${post.date.toDateString()}</a></footer>`
 
     if (post.data.title === stars) {
       header = ``
