@@ -228,6 +228,10 @@ ul.tepiton {
   text-decoration: none;
 }
 
+.tepiton article {
+  border: 1px solid red;
+
+}
 
 .tepiton header,
 .tepiton header a,
@@ -238,7 +242,7 @@ ul.tepiton {
   color: var(--color-heading);
   text-decoration: none;
   margin: 0 0 .5em 0;
-  line-height: 1.125;
+  line-height: 1;
 }
 
 
@@ -248,6 +252,10 @@ ul.tepiton {
   line-height: 1.63;
   font-family: var(--font-body);
   margin: 0;
+}
+
+.tepiton p:first-of-type {
+  margin-top: 0;
 }
 
 .tepiton footer::before {
