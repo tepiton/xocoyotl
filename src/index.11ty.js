@@ -51,7 +51,7 @@ module.exports = class Home {
     summary = this.markdown2(summary)
 
     if (post.data.newlines) {
-      summary = summary.replace(/\n/g, '<br>\n')
+      summary = summary.trim().replace(/\n/g, '<br>\n')
     }
 
     let body = ''
