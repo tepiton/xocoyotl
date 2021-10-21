@@ -55,7 +55,7 @@ module.exports = class Home {
     }
 
     let body = ''
-    let header  = `<header><a href="${post.url}">${post.data.title}</a></header>`
+    let header  = post.data.title && `<header><a href="${post.url}">${post.data.title}</a></header>`
     let section = `<section><a href="${post.url}">${summary}</section></a>`
     let footer  = `<footer><a href="${post.data.draft}"># ${post.date.toDateString()}</a></footer>`
 
