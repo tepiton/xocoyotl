@@ -22,6 +22,7 @@
 :root {
   --lt-color-foreground:  hsl(  0,  0%, 07%);
   --lt-color-background:  hsl(  0,  0%, 95%);
+  --lt-color-background-alt:  hsl(  0,  0%, 85%);
   --lt-color-heading:     hsl(  0,  0%, 10%, 1.0);
   --lt-color-heading-alt: hsl(  0,  0%, 20%, 1.0);
   --lt-color-logo:        hsl(  0, 58%, 33%, 1.0);
@@ -29,6 +30,7 @@
 
   --dk-color-foreground:  var(--is-dark)  hsl(  0,  0%, 80%);
   --dk-color-background:  var(--is-dark)  hsl(  0,  0%, 15%);
+  --dk-color-background-alt:  var(--is-dark)  hsl(  0,  0%, 25%);
   --dk-color-heading:     var(--is-dark)  hsl(  0,  0%, 90%, 1.0);
   --dk-color-heading-alt: var(--is-dark)  hsl(  0,  0%, 75%, 1.0);
   --dk-color-logo:        var(--is-dark)  hsl(  0, 72%, 36%, 1.0);
@@ -36,6 +38,7 @@
 
   --color-foreground:     var(--dk-color-foreground , var(--lt-color-foreground));
   --color-background:     var(--dk-color-background , var(--lt-color-background));
+  --color-background-alt:     var(--dk-color-background-alt , var(--lt-color-background-alt));
   --color-heading:        var(--dk-color-heading    , var(--lt-color-heading));
   --color-heading-alt:    var(--dk-color-heading-alt, var(--lt-color-heading-alt));
   --color-logo:           var(--dk-color-logo,        var(--lt-color-logo));
@@ -49,7 +52,7 @@
 
 :root {
   --font-serif:           Spectral, Georgia, serif;
-  --font-sans-serif:      'Helvetica Neue', Helvetica, sans-serif;
+  --font-sans-serif:      'Poiret One',Vibes, 'Abril Fatface','Onyx','Helvetica Neue', Helvetica, sans-serif;
   --font-mono:            monospace;
   --font-logo:            'Helvetica Neue', Spectral, john-doe, sans-serif;
   --font-body:            var(--font-serif);
@@ -133,7 +136,7 @@ footer {
   grid-area: foot;
   border-top: 1px solid var(--color-heading-alt);
   color: var(--color-heading-alt);
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-logo);
   font-weight: 300;
   font-size: .5em;
   margin-bottom: 7vh;
@@ -183,12 +186,12 @@ h1.logo {
 }
 
 .post h1 {
-  font-family: var(--font-logo);
+  font-family: var(--font-heading);
   color: var(--color-heading);
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2em;
+  font-weight: 400;
   margin: 0;
-  margin-bottom: 1em;
+  margin-bottom: 0em;
   width: 100%;
 }
 
@@ -211,45 +214,57 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 
 /***
-  tepiton: ul container
+  tepiton: index page
  ***/
 
-ul.tepiton {
-  padding: 0;
-}
-
-
-.tepiton li {
-  list-style: none;
-  margin-bottom: 2em
-}
-
-.tepiton li article section a {
+/* don't underline */
+.tepiton article section a {
   text-decoration: none;
 }
 
 .tepiton article {
-  border: 1px solid red;
+/*
+  border: 1px solid blue;
+ */
+  border-bottom: 1px solid rgba(0,0,0,0.0);
+  margin-top: 2em;
+}
+
+.tepiton article.noTitle {
+  background-color: var(--color-background-alt);
+  line-height: 2em;
+  padding: 1em 2em 0;
 
 }
+
+
+.tepiton article.noTitle section {
+
+}
+
+/***
+ *
+ * pages
+ *
+ ***/
 
 .tepiton header,
 .tepiton header a,
 .tepiton header a:hover {
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 1em !important;
+  font-weight: 400;
+  font-size: 1.37em !important;
   color: var(--color-heading);
   text-decoration: none;
-  margin: 0 0 .5em 0;
-  line-height: 1;
+  margin: 0 0 .125em 0;
+  line-height: 1.2;
 }
 
 
 .tepiton section {
   font-weight: var(--weight-body);
   font-size:  1em;
-  line-height: 1.63;
+  line-height: 1.53;
   font-family: var(--font-body);
   margin: 0;
 }
@@ -335,7 +350,7 @@ ul.tepiton {
 
 
 .btn {
-  font-family: var(--font-sans-serif);
+  font-family: var(--font-logo);
   border: none;
 /*
   border: 1px solid red;

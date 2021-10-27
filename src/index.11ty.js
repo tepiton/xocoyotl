@@ -48,12 +48,13 @@ module.exports = class Home {
 
   renderPost(post) {
     let summary = this.getSummary(post)
-    summary = this.markdown2(summary)
+    summary = this.markdown2(summary)     // wraps in <p>
 
     if (post.data.newlines) {
       summary = summary.trim().replace(/\n/g, '<br>\n')
     }
 
+    let noTitle = false
     let body = ''
     let header  = post.data.title && `<header><a href="${post.url}">${post.data.title}</a></header>`
     let section = `<section><a href="${post.url}">${summary}</section></a>`
@@ -62,15 +63,14 @@ module.exports = class Home {
     if (post.data.title === stars) {
       header = ``
       footer = ``
+      noTitle = true
     }
 
     body =
-    `     <li>
-          <article>
+    `     <article ${noTitle ? 'class="noTitle"' : ''}>
             ${header}
             ${section}
-        </article>
-       </li>`
+        </article>`
 
     return body
   }
@@ -83,9 +83,9 @@ module.exports = class Home {
 
     let head = `<h1 class="logo">${ data.config.siteName }</h1>`
     let body = `
-<ul class="tepiton">
+<div class="tepiton">
   ${posts.reverse().map(post => this.renderPost(post)).join("\n")}
-</ul>`
+</div>`
 
     return head + body
   }
