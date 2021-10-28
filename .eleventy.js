@@ -11,17 +11,17 @@ function getFileName(id, src, width, format, options) {
     }
 
 async function imageShortcode(src, alt, sizes = "100vw") {
-    if(alt === undefined) {
-      throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
-    }
+  if(alt === undefined) {
+    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+  }
 
-    let metadata = await Image(src, { widths: [400, 600, null],
-                                      formats: ["jpg"],
-                                      outputDir: "./dist/assets/img/",
-                                      urlPath: "/assets/img/",
-                                      filenameFormat: getFileName,
-                                      title: slugify(alt, {lower: true, strict: true})
-                                    })
+  let metadata = await Image(src, { widths: [400, 600, null],
+                                    formats: ["jpg"],
+                                    outputDir: "./dist/assets/img/",
+                                    urlPath: "/assets/img/",
+                                    filenameFormat: getFileName,
+                                    title: slugify(alt, {lower: true, strict: true})
+                                   })
 
   let lowsrc = metadata.jpeg[0];
   let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
