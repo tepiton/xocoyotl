@@ -52,7 +52,7 @@
 
 :root {
   --font-serif:           Spectral, Georgia, serif;
-  --font-sans-serif:      'Poiret One',Vibes, 'Abril Fatface','Onyx','Helvetica Neue', Helvetica, sans-serif;
+  --font-sans-serif:      'Neue Kabel', 'Poiret One',Vibes, 'Abril Fatface','Onyx','Helvetica Neue', Helvetica, sans-serif;
   --font-mono:            monospace;
   --font-logo:            'Helvetica Neue', Spectral, john-doe, sans-serif;
   --font-body:            var(--font-serif);
@@ -179,7 +179,7 @@ h1 {
 }
 
 h1.logo {
-  font-family: var(--font-logo);
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: 3.5rem;
   color: var(--color-logo);
@@ -193,6 +193,12 @@ h1.logo {
   margin: 0;
   margin-bottom: 0em;
   width: 100%;
+  font-feature-settings:"onum",   /*  onum:   Old style numbers */
+                        "ss04",   /*  ss04:   Overlapping W   */
+                        "xs06",   /*  ss06:   happy e */
+                        "ss08",   /*  ss08:   diamond I dots */
+                        "ss11",   /*  ss11:   round a */
+                        "xs14";   /*  ss14:   tail l */
 }
 
 .post h1 a {
@@ -201,10 +207,10 @@ h1.logo {
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: var(--font-logo);
+  font-family: var(--font-heading);
   color: var(--color-heading-alt);
-  margin-bottom: 0.5em;
-  font-weight: 700;
+  margin-bottom: 0.25em;
+  font-weight: 400;
 }
 
 
@@ -258,6 +264,13 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   text-decoration: none;
   margin: 0 0 .125em 0;
   line-height: 1.2;
+
+  font-feature-settings:"onum",   /*  onum:   Old style numbers */
+                        "ss04",   /*  ss04:   Overlapping W   */
+                        "xs06",   /*  ss06:   happy e */
+                        "ss08",   /*  ss08:   diamond I dots */
+                        "ss11",   /*  ss11:   round a */
+                        "xs14";   /*  ss14:   tail l */
 }
 
 
