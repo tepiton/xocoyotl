@@ -238,6 +238,7 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 .tepiton article.noTitle {
   background-color: var(--color-background-alt);
+  border-radius: 15px ;
   line-height: 2em;
   padding: 1em 2em 0;
 
