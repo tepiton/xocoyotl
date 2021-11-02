@@ -33,7 +33,7 @@
   --dk-color-background-alt:  var(--is-dark)  hsl(  0,  0%, 25%);
   --dk-color-heading:     var(--is-dark)  hsl(  0,  0%, 90%, 1.0);
   --dk-color-heading-alt: var(--is-dark)  hsl(  0,  0%, 75%, 1.0);
-  --dk-color-logo:        var(--is-dark)  hsl(  0, 72%, 36%, 1.0);
+  --dk-color-logo:        var(--is-dark)  hsl(  0, 72%, 46%, 1.0);
   --dk-weight-body:       var(--is-dark)  300;
 
   --color-foreground:     var(--dk-color-foreground , var(--lt-color-foreground));
@@ -52,7 +52,7 @@
 
 :root {
   --font-serif:           Spectral, Georgia, serif;
-  --font-sans-serif:      'Neue Kabel', 'Poiret One',Vibes, 'Abril Fatface','Onyx','Helvetica Neue', Helvetica, sans-serif;
+  --font-sans-serif:      neue-kabel, 'Poiret One',Vibes, 'Abril Fatface','Onyx','Helvetica Neue', Helvetica, sans-serif;
   --font-mono:            monospace;
   --font-logo:            'Helvetica Neue', Spectral, john-doe, sans-serif;
   --font-body:            var(--font-serif);
@@ -238,15 +238,26 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 .tepiton article.noTitle {
   background-color: var(--color-background-alt);
-  border-radius: 15px ;
-  line-height: 2em;
-  padding: 1em 2em 0;
-
+  border-radius: 10px ;
+  padding: 1em 2em 0 2em;
 }
 
 
-.tepiton article.noTitle section {
+.tepiton  article.noTitle span.noTitle {
+/*
+  border: 1px solid red;
+ */
+  font-family: neue-kabel, sans-serif;
+  width: 1em;
+  top: 1.8em;
+  left: -1.5em;
+  position: relative;
+}
 
+.tepiton article.noTitle section {
+  font-family: neue-kabel, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /***
@@ -260,7 +271,7 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 .tepiton header a:hover {
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: 1.37em !important;
+  font-size: 1.37em;
   color: var(--color-heading);
   text-decoration: none;
   margin: 0 0 .125em 0;
@@ -411,3 +422,4 @@ iframe {
   margin-top: 1em;
   max-width: 100%;
 }
+
