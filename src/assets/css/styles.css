@@ -24,7 +24,7 @@
   --lt-color-background:  hsl(  0,  0%, 95%);
   --lt-color-background-alt:  hsl(  0,  0%, 85%);
   --lt-color-heading:     hsl(  0,  0%, 10%, 1.0);
-  --lt-color-heading-alt: hsl(  0,  0%, 20%, 1.0);
+  --lt-color-heading-alt: hsl(  0,  0%, 40%, 1.0);
   --lt-color-logo:        hsl(  0, 58%, 33%, 1.0);
   --lt-weight-body:       400;
 
@@ -140,6 +140,7 @@ footer {
   font-weight: 300;
   font-size: .5em;
   margin-bottom: 7vh;
+  margin-top: 2em;
 }
 
 footer ul {
@@ -229,24 +230,19 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 }
 
 .tepiton article {
-/*
-  border: 1px solid blue;
- */
   border-bottom: 1px solid rgba(0,0,0,0.0);
   margin-top: 2em;
+  position: relative;
 }
 
 .tepiton article.noTitle {
   background-color: var(--color-background-alt);
   border-radius: 10px ;
-  padding: 1em 2em 0 2em;
+  padding: 1em 2em 0 1em;
 }
 
 
 .tepiton  article.noTitle span.noTitle {
-/*
-  border: 1px solid red;
- */
   font-family: neue-kabel, sans-serif;
   width: 1em;
   top: 1.8em;
@@ -259,6 +255,28 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   font-weight: 400;
   font-style: normal;
 }
+
+.ex {
+  font-family: neue-kabel, sans-serif;
+  position: absolute;
+  width: .75rem;
+  height: .75rem;
+  top: .75rem;
+  left: -1rem;
+  background-color: green;
+  background-color: var(--color-background-alt);
+  border-radius: 3px;
+}
+
+.noTitle .ex {
+  top: 1.8rem;
+}
+
+.ex:hover {
+  background-color: var(--color-heading-alt)
+}
+
+
 
 /***
  *
@@ -327,7 +345,9 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   color: var(--color-link-hover);
 }
 
+.post blockquote,
 .tepiton blockquote {
+  margin: 0 2em 0 1em;
 
 }
 
