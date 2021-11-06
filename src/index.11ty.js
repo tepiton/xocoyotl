@@ -46,8 +46,9 @@ module.exports = class Home {
     `     <article ${noTitle ? 'class="noTitle"' : ''}>
             ${header}
             ${section}
+            <a href="${post.url}">
             <div class="ex">
-            </div>
+            </div></a>
         </article>`
 
     return body

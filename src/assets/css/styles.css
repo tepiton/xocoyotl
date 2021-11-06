@@ -261,15 +261,17 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   position: absolute;
   width: .75rem;
   height: .75rem;
-  top: .75rem;
+  top: 1.33rem;
   left: -1rem;
-  background-color: green;
   background-color: var(--color-background-alt);
   border-radius: 3px;
 }
 
 .noTitle .ex {
-  top: 1.8rem;
+  top: .5rem;
+  left: .5rem;
+  background-color: red;
+  background-color: var(--color-background-alt);
 }
 
 .ex:hover {
