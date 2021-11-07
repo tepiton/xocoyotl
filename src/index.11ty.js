@@ -31,14 +31,14 @@ module.exports = class Home {
 
     let noTitle = false
     let header  = post.data.title && `<header><a href="${post.url}">${this.markdown(post.data.title)}</a></header>`
-    let section = `<section><a href="${post.url}">${summary}</section></a>`
+    let section = `<section>${summary}</section>`
     let footer  = `<footer><a href="${post.data.draft}"># ${post.date.toDateString()}</a></footer>`
 
       //  http://svgicons.sparkk.fr/
 
     if (post.data.title === stars) {
+      header = `<a href="${post.url}"><div class="ex"></div></a>`
       footer = ``
-      header = ``
       noTitle = true
     }
 
@@ -46,9 +46,6 @@ module.exports = class Home {
     `     <article ${noTitle ? 'class="noTitle"' : ''}>
             ${header}
             ${section}
-            <a href="${post.url}">
-            <div class="ex">
-            </div></a>
         </article>`
 
     return body
