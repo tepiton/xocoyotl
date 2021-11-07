@@ -6,13 +6,11 @@
 	--false: initial;
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --is-dark: var(--true);
   }
 }
-
 @media (prefers-color-scheme: light) {
   :root {
     --is-dark: var(--false);
@@ -20,43 +18,40 @@
 }
 
 :root {
-  --lt-color-foreground:  hsl(  0,  0%, 07%);
-  --lt-color-background:  hsl(  0,  0%, 95%);
+  --lt-color-foreground:      hsl(  0,  0%, 07%);
+  --lt-color-background:      hsl(  0,  0%, 95%);
   --lt-color-background-alt:  hsl(  0,  0%, 85%);
-  --lt-color-heading:     hsl(  0,  0%, 10%, 1.0);
-  --lt-color-heading-alt: hsl(  0,  0%, 40%, 1.0);
-  --lt-color-logo:        hsl(  0, 58%, 33%, 1.0);
-  --lt-weight-body:       400;
+  --lt-color-heading:         hsl(  0,  0%, 10%, 1.0);
+  --lt-color-heading-alt:     hsl(  0,  0%, 40%, 1.0);
+  --lt-color-logo:            hsl(  0, 58%, 33%, 1.0);
+  --lt-weight-body:           400;
 
-  --dk-color-foreground:  var(--is-dark)  hsl(  0,  0%, 80%);
-  --dk-color-background:  var(--is-dark)  hsl(  0,  0%, 15%);
+  --dk-color-foreground:      var(--is-dark)  hsl(  0,  0%, 80%);
+  --dk-color-background:      var(--is-dark)  hsl(  0,  0%, 15%);
   --dk-color-background-alt:  var(--is-dark)  hsl(  0,  0%, 25%);
-  --dk-color-heading:     var(--is-dark)  hsl(  0,  0%, 90%, 1.0);
-  --dk-color-heading-alt: var(--is-dark)  hsl(  0,  0%, 75%, 1.0);
-  --dk-color-logo:        var(--is-dark)  hsl(  0, 72%, 46%, 1.0);
-  --dk-weight-body:       var(--is-dark)  300;
+  --dk-color-heading:         var(--is-dark)  hsl(  0,  0%, 90%, 1.0);
+  --dk-color-heading-alt:     var(--is-dark)  hsl(  0,  0%, 75%, 1.0);
+  --dk-color-logo:            var(--is-dark)  hsl(  0, 72%, 46%, 1.0);
+  --dk-weight-body:           var(--is-dark)  300;
 
-  --color-foreground:     var(--dk-color-foreground , var(--lt-color-foreground));
-  --color-background:     var(--dk-color-background , var(--lt-color-background));
+  --color-foreground:         var(--dk-color-foreground , var(--lt-color-foreground));
+  --color-background:         var(--dk-color-background , var(--lt-color-background));
   --color-background-alt:     var(--dk-color-background-alt , var(--lt-color-background-alt));
-  --color-heading:        var(--dk-color-heading    , var(--lt-color-heading));
-  --color-heading-alt:    var(--dk-color-heading-alt, var(--lt-color-heading-alt));
-  --color-logo:           var(--dk-color-logo,        var(--lt-color-logo));
-  --weight-body:          var(--dk-weight-body,       var(--lt-weight-body));
+  --color-heading:            var(--dk-color-heading    , var(--lt-color-heading));
+  --color-heading-alt:        var(--dk-color-heading-alt, var(--lt-color-heading-alt));
+  --color-logo:               var(--dk-color-logo,        var(--lt-color-logo));
+  --weight-body:              var(--dk-weight-body,       var(--lt-weight-body));
 
-  --color-body:           var(--color-foreground);
-  --color-link:           var(--color-heading-alt);
-  --color-link-hover:     var(--color-heading);
-}
+  --color-body:               var(--color-foreground);
+  --color-link:               var(--color-heading-alt);
+  --color-link-hover:         var(--color-heading);
 
-
-:root {
-  --font-serif:           Spectral, Georgia, serif;
-  --font-sans-serif:      neue-kabel, 'Poiret One',Vibes, 'Abril Fatface','Onyx','Helvetica Neue', Helvetica, sans-serif;
-  --font-mono:            monospace;
-  --font-logo:            'Helvetica Neue', Spectral, john-doe, sans-serif;
-  --font-body:            var(--font-serif);
-  --font-heading:         var(--font-sans-serif);
+  --font-serif:               Spectral, Georgia, serif;
+  --font-sans-serif:          neue-kabel, 'Poiret One',Vibes, 'Abril Fatface','Onyx','Helvetica Neue', Helvetica, sans-serif;
+  --font-mono:                monospace;
+  --font-logo:                'Helvetica Neue', Spectral, john-doe, sans-serif;
+  --font-body:                var(--font-serif);
+  --font-heading:             var(--font-sans-serif);
 }
 
 html {
@@ -82,11 +77,9 @@ body {
 }
 
 a,
-a:visited
-{
+a:visited {
   color: var(--color-link);
 }
-
 a:hover {
   color: var(--color-link-hover);
 }
@@ -110,7 +103,6 @@ a:hover {
 }
 
 /*  page header */
-
 header {
   display: grid;
   grid-area: head;
@@ -118,7 +110,6 @@ header {
 
 
 /*  Main content */
-
 main {
   grid-area: main;
   /* overflow: scroll; */
@@ -129,9 +120,7 @@ nav {
   grid-area: nav;
 }
 
-
 /*  footer  */
-
 footer {
   grid-area: foot;
   border-top: 1px solid var(--color-heading-alt);
@@ -142,7 +131,6 @@ footer {
   margin-bottom: 7vh;
   margin-top: 2em;
 }
-
 footer ul {
   list-style: none;
 	display: flex;
@@ -151,14 +139,11 @@ footer ul {
 	padding: 0;
 	margin: .5em 0;
 }
-
 footer li,
 footer li a {
   line-height: 1.3;
   text-decoration: none;
 }
-
-
 hr {
   border-top: 1px solid var(--color-heading-alt);
 }
@@ -186,34 +171,12 @@ h1.logo {
   color: var(--color-logo);
 }
 
-.post h1 {
-  font-family: var(--font-heading);
-  color: var(--color-heading);
-  font-size: 2em;
-  font-weight: 400;
-  margin: 0;
-  margin-bottom: 0em;
-  width: 100%;
-  font-feature-settings:"onum",   /*  onum:   Old style numbers */
-                        "ss04",   /*  ss04:   Overlapping W   */
-                        "xs06",   /*  ss06:   happy e */
-                        "ss08",   /*  ss08:   diamond I dots */
-                        "ss11",   /*  ss11:   round a */
-                        "xs14";   /*  ss14:   tail l */
-}
-
-.post h1 a {
-  text-decoration: none;
-  color: var(--color-heading);
-}
-
 h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--color-heading-alt);
   margin-bottom: 0.25em;
   font-weight: 400;
 }
-
 
 h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   margin-top: 0em;
@@ -224,37 +187,88 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   tepiton: index page
  ***/
 
-/* don't underline */
-.tepiton article section a {
-  text-decoration: none;
+
+.tepiton p:first-of-type {
+  margin-top: 0;
 }
 
 .tepiton article {
   border-bottom: 1px solid rgba(0,0,0,0.0);
-  margin-top: 2em;
+  margin-top: 1em;
   position: relative;
+  padding: 1em 2em 0 1em;
+  border: 1px solid var(--color-background-alt);
+  border-radius: 10px ;
 }
-
 .tepiton article.noTitle {
   background-color: var(--color-background-alt);
   border-radius: 10px ;
   padding: 1em 2em 0 1em;
 }
-
-
-.tepiton  article.noTitle span.noTitle {
-  font-family: neue-kabel, sans-serif;
-  width: 1em;
-  top: 1.8em;
-  left: -1.5em;
-  position: relative;
-}
-
 .tepiton article.noTitle section {
   font-family: neue-kabel, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+.tepiton article section a {
+  text-decoration: none;
+}
+
+.tepiton header,
+.tepiton header a,
+.tepiton header a:hover {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.37em;
+  color: var(--color-heading);
+  text-decoration: none;
+  margin: 0 0 .125em 0;
+  line-height: 1.2;
+
+  font-feature-settings:"onum",   /*  onum:   Old style numbers */
+                        "ss04",   /*  ss04:   Overlapping W   */
+                        "xs06",   /*  ss06:   happy e */
+                        "ss08",   /*  ss08:   diamond I dots */
+                        "ss11",   /*  ss11:   round a */
+                        "xs14";   /*  ss14:   tail l */
+}
+
+.tepiton section {
+  font-weight: var(--weight-body);
+  font-size:  1em;
+  line-height: 1.53;
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+
+.tepiton footer::before {
+  content: '';
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: hsl(0, 0%, 50%);
+}
+.tepiton footer {
+  grid-area: unset;
+  width: max-content;
+  font-family: var(--font-heading);
+  font-size:  .625rem;
+  font-style: none;
+  margin:  0em 0;
+  padding: .25em 0 0 0;
+  border: none;
+  color: var(--color-link);
+}
+.tepiton footer a {
+  text-decoration: none;
+  color: hsl(0, 0%, 50%);
+}
+.tepiton footer a:hover {
+  text-decoration: none;
+  color: var(--color-link-hover);
+}
+
+
 
 .ex {
   font-family: neue-kabel, sans-serif;
@@ -286,66 +300,6 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
  *
  ***/
 
-.tepiton header,
-.tepiton header a,
-.tepiton header a:hover {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: 1.37em;
-  color: var(--color-heading);
-  text-decoration: none;
-  margin: 0 0 .125em 0;
-  line-height: 1.2;
-
-  font-feature-settings:"onum",   /*  onum:   Old style numbers */
-                        "ss04",   /*  ss04:   Overlapping W   */
-                        "xs06",   /*  ss06:   happy e */
-                        "ss08",   /*  ss08:   diamond I dots */
-                        "ss11",   /*  ss11:   round a */
-                        "xs14";   /*  ss14:   tail l */
-}
-
-
-.tepiton section {
-  font-weight: var(--weight-body);
-  font-size:  1em;
-  line-height: 1.53;
-  font-family: var(--font-body);
-  margin: 0;
-}
-
-.tepiton p:first-of-type {
-  margin-top: 0;
-}
-
-.tepiton footer::before {
-  content: '';
-  font-family: var(--font-heading);
-  font-style: italic;
-  color: hsl(0, 0%, 50%);
-}
-
-.tepiton footer {
-  grid-area: unset;
-  width: max-content;
-  font-family: var(--font-heading);
-  font-size:  .625rem;
-  font-style: none;
-  margin:  0em 0;
-  padding: .25em 0 0 0;
-  border: none;
-  color: var(--color-link);
-}
-
-.tepiton footer a {
-  text-decoration: none;
-  color: hsl(0, 0%, 50%);
-}
-
-.tepiton footer a:hover {
-  text-decoration: none;
-  color: var(--color-link-hover);
-}
 
 .post blockquote,
 .tepiton blockquote {
@@ -364,6 +318,27 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 .newlines p:first-of-type {
   margin-top: revert;
+}
+
+.post h1 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 0em;
+  width: 100%;
+  font-feature-settings:"onum",   /*  onum:   Old style numbers */
+                        "ss04",   /*  ss04:   Overlapping W   */
+                        "xs06",   /*  ss06:   happy e */
+                        "ss08",   /*  ss08:   diamond I dots */
+                        "ss11",   /*  ss11:   round a */
+                        "xs14";   /*  ss14:   tail l */
+}
+
+.post h1 a {
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 .post footer,
