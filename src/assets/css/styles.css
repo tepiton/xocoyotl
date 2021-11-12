@@ -209,20 +209,32 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   font-family: neue-kabel, sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-feature-settings:"xnum",   /*  onum:   Old style numbers */
+                        "ss04",   /*  ss04:   Overlapping W   */
+                        "xs06",   /*  ss06:   happy e */
+                        "ss08",   /*  ss08:   diamond I dots */
+                        "ss11",   /*  ss11:   round a */
+                        "xs14";   /*  ss14:   tail l */
 }
+
 .tepiton article section a {
   text-decoration: none;
 }
+
+
 
 .tepiton header,
 .tepiton header a,
 .tepiton header a:hover {
   font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: 1.37em;
+  font-weight: 600;
+  font-size: 1.125em;
   color: var(--color-heading);
-  text-decoration: none;
-  margin: 0 0 .125em 0;
+  text-decoration: underline solid;
+  text-decoration-color: red;
+  text-decoration-thickness: .02px;
+  text-underline-offset: 2px;
+  margin: 0 0 .325em 0;
   line-height: 1.2;
 
   font-feature-settings:"onum",   /*  onum:   Old style numbers */
@@ -232,6 +244,7 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
                         "ss11",   /*  ss11:   round a */
                         "xs14";   /*  ss14:   tail l */
 }
+
 
 .tepiton section {
   font-weight: var(--weight-body);
