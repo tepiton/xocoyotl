@@ -345,7 +345,7 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   margin: 0;
   margin-bottom: 0em;
   width: 100%;
-  font-feature-settings:"onum",   /*  onum:   Old style numbers */
+  font-feature-settings:"xnum",   /*  onum:   Old style numbers */
                         "ss04",   /*  ss04:   Overlapping W   */
                         "xs06",   /*  ss06:   happy e */
                         "ss08",   /*  ss08:   diamond I dots */
