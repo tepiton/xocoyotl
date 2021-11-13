@@ -231,7 +231,7 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   font-size: 1.125em;
   color: var(--color-heading);
   text-decoration: underline solid;
-  text-decoration-color: red;
+  text-decoration-color: var(--color-heading-alt);
   text-decoration-thickness: .02px;
   text-underline-offset: 2px;
   margin: 0 0 .325em 0;
