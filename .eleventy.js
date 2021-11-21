@@ -1,27 +1,35 @@
-const Image = require("@11ty/eleventy-img");
-const path = require("path")
+const Image   = require("@11ty/eleventy-img")
+const path    = require("path")
 const slugify = require("slugify")
 
 
 function getFileName(id, src, width, format, options) {
-      let extension = path.extname(src)
-      let name = path.basename(src, extension)
-      name = options.title
-      return `${name}-${width}w.${format}`;
-    }
+  let extension = path.extname(src)
+  let name = path.basename(src, extension)
+
+  name = options.title
+  return `${name}-${width}w.${format}`;
+}
 
 async function imageShortcode(src, alt, sizes = "100vw") {
+  let metadata
+
   if(alt === undefined) {
     throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
   }
 
-  let metadata = await Image(src, { widths: [400, 600, null],
+  try {
+    metadata = await Image(src, { widths: [400, 600, null],
                                     formats: ["jpg"],
                                     outputDir: "./dist/assets/img/",
                                     urlPath: "/assets/img/",
                                     filenameFormat: getFileName,
                                     title: slugify(alt, {lower: true, strict: true})
                                    })
+  } catch {
+    console.log('bad src:', src)
+    return '<img class="tepiton" src="/assets/img/404.png">'
+  }
 
   let lowsrc = metadata.jpeg[0];
   let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
@@ -51,8 +59,8 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 function examine(file, options) {
   const excerptLength = 256
 
-  const sep =   file.data.excerpt_separator
-             || options.excerpt_separator
+  const sep = file.data.excerpt_separator
+           || options.excerpt_separator
 
   if (sep == null && (options.excerpt === false || options.excerpt == null)) {
     return file
@@ -73,8 +81,6 @@ function examine(file, options) {
         //  no excerpt marker
   if (first == -1 && last == -1)
     return file
-
-
 
   if (first == last) {
     file.excerpt = file.content.substring(0, last).trim()
