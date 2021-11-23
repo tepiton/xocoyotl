@@ -358,6 +358,17 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   color: var(--color-heading);
 }
 
+figcaption,
+figcaption  a {
+  color: #aaa;
+  text-decoration: none;
+  border-top: none;
+  font-family: var(--font-sans-serif);
+  font-size:  .8em;
+  text-align: right;
+}
+
+
 .post footer,
 .post footer a {
   color: #aaa;
