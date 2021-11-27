@@ -1,6 +1,8 @@
 const Image   = require("@11ty/eleventy-img")
 const path    = require("path")
 const slugify = require("slugify")
+const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
+
 
 
 function getFileName(id, src, width, format, options) {
@@ -106,7 +108,14 @@ function examine(file, options) {
 }
 
 
+//
+//      .eleventy.js really starts here
+//
+
 module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addPlugin(UpgradeHelper);
+
 
   eleventyConfig.addPassthroughCopy("src/assets")
   eleventyConfig.addFilter("pdump", require("./js/pdump.js"))
