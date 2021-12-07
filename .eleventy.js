@@ -1,54 +1,3 @@
-const Image   = require("@11ty/eleventy-img")
-const path    = require("path")
-const slugify = require("slugify")
-const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
-
-
-
-function getFileName(id, src, width, format, options) {
-  let extension = path.extname(src)
-  let name = path.basename(src, extension)
-
-  name = options.title
-  return `${name}-${width}w.${format}`;
-}
-
-
-async function imageShortcode(src, alt, orig_text = "", orig_url = "", sizes = "100vw") {
-  let metadata
-
-  if(alt === undefined) {
-    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
-  }
-
-  try {
-    metadata = await Image(src, { widths: [400, 600, null],
-                                    formats: ["jpg"],
-                                    outputDir: "./dist/assets/img/",
-                                    urlPath: "/assets/img/",
-                                    filenameFormat: getFileName,
-                                    title: slugify(alt, {lower: true, strict: true})
-                                   })
-  } catch {
-    console.log('bad src:', src)
-    return '<img class="tepiton" src="/assets/img/404.png">'
-  }
-
-  let lowsrc = metadata.jpeg[0];
-  let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
-
-  return `<figure><picture>
-    ${Object.values(metadata).map(imageFormat => {
-      return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`;
-    }).join("\n")}
-      <img class="tepiton" src="${lowsrc.url}" width="${highsrc.width}"
-        height="${highsrc.height}" alt="${alt}" loading="lazy" decoding="async">
-    </picture>
-    <figcaption><a href="${orig_url}">${orig_text}</a></figcaption>
-    </figure>
-    `;
-}
-
 //  if the excerpt property is a function, it
 //  runs that instead of the default excerpt
 //  mechanism: https://github.com/jonschlinkert/gray-matter/blob/master/lib/excerpt.js
@@ -98,24 +47,14 @@ function examine(file, options) {
   let re = new RegExp(delimiter, 'g')
   file.content = file.content.replace(re, '')
 
-//   console.log('** first:', first)
-//   console.log('** last:', last)
-//   console.log('** file:', file)
-//   console.log('** options', options)
-
-
   return file
 }
-
 
 //
 //      .eleventy.js really starts here
 //
 
 module.exports = function (eleventyConfig) {
-
-  eleventyConfig.addPlugin(UpgradeHelper);
-
 
   eleventyConfig.addPassthroughCopy("src/assets")
   eleventyConfig.addFilter("pdump", require("./js/pdump.js"))
@@ -124,7 +63,6 @@ module.exports = function (eleventyConfig) {
       excerpt_separator: "<!-- excerpt -->",
       excerpt_alias: "excerpt"
   })
-
 
   // The ever-popular markdown filter.
   eleventyConfig.addFilter("markdown", (content) => md.renderInline(content))
@@ -137,11 +75,11 @@ module.exports = function (eleventyConfig) {
     debugger;
   })
 
+  let x = require('./js/image-sync.js')
 
-  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addLiquidShortcode("image", imageShortcode);
-  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
-
+  eleventyConfig.addNunjucksAsyncShortcode("image", require('./js/image.js'));
+  // eleventyConfig.addNunjucksAsyncShortcode("image", require('./js/image-sync.js'));
+  // eleventyConfig.addNunjucksShortcode("image", require('./js/simple.js'));
 
   eleventyConfig.addCollection("byDraftDate", collectionAPI => {
     let list = collectionAPI.getFilteredByTag('tepiton')
