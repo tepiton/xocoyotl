@@ -3,18 +3,39 @@ layout: base.njk
 home: true
 ---
 
-44
-<!--
+# ha ha
+
+{% renderTemplate "md" %}
+# I am a title
+
+* I am a list
+* I am a list
+{% endrenderTemplate %}
+
+{% renderTemplate "njk" %}
+
+{% oembed "https://twitter.com/MadMenQts/status/1464094834898132993?s=20" %}
+
+{% endrenderTemplate %}
+
+{#
+  this doesn't work
+  
 <ul class="tepiton">
   {%-for post in collections.tepiton | reverse -%}
   <li>
     <article>
       <header><a href={{post.url}}>{{post.data.title | markdown  | safe }}</a></header>
       <section>
-        {% if post.data.summary -%}
-          {{ post.data.summary | markdown | safe -}}
+        {% if post.data.excerpt -%}
+          x{{ post.data.excerpt | markdown | safe -}}
+{% renderTemplate "njk", post.data %}
+s
+{{ excerpt }}
+q
+{% endrenderTemplate %}
         {% else %}
-          no summary
+          no excerpt
         {% endif %}
       </section>
       <footer><a href={{post.data.draft}}># {{post.date.toDateString()}}</a></footer>
@@ -22,4 +43,5 @@ home: true
   </li>
   {% endfor -%}
 </ul>
- -->
+
+#}

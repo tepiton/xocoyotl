@@ -10,17 +10,22 @@ function getFileName(id, src, width, format, options) {
   return `${name}-${width}w.${format}`;
 }
 
-async function imageShortcode(src, alt, orig_text = "", orig_url = "", sizes = "100vw") {
+async function imageShortcode(src,
+                              title, 
+                              orig_url = "",
+                              orig_text = "",
+                              sizes = "100vw") {
   let metadata
 
+  title = title || 'fake'
   try {
     metadata = await Image(src, {
-                        widths: [400, 600, null],
+                        widths: [640, null],
                         formats: ["jpg"],
                         outputDir: "./dist/assets/img/",
                         urlPath: "/assets/img/",
                         filenameFormat: getFileName,
-                        title: slugify(alt, {lower: true, strict: true})
+                        title: slugify(title, {lower: true, strict: true})
                     })
   } catch (e) {
     console.log('bad src:', e)
@@ -30,15 +35,16 @@ async function imageShortcode(src, alt, orig_text = "", orig_url = "", sizes = "
   let lowsrc  = metadata.jpeg[0];
   let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
 
-  return `<figure><picture>
-    ${Object.values(metadata).map(imageFormat => {
-      return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`;
+  return `
+<figure>
+ <picture>
+${Object.values(metadata).map(imageFormat => { return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`;
     }).join("\n")}
-      <img class="tepiton" src="${lowsrc.url}" width="${highsrc.width}"
-        height="${highsrc.height}" alt="${alt}" loading="lazy" decoding="async">
-    </picture>
-    <figcaption><a href="${orig_url}">${orig_text}</a></figcaption>
-    </figure>
+    <img class="tepiton" src="${lowsrc.url}" width="${highsrc.width}"
+      height="${highsrc.height}" alt="${title}" loading="lazy" decoding="async">
+  </picture>
+  <figcaption><a href="${orig_url}">${orig_text}</a></figcaption>
+</figure>
     `;
 }
 
