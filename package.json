@@ -20,7 +20,7 @@
     "flickr-sdk": "^4.0.0",
     "json-cycle": "^1.3.0",
     "markdown-it": "^12.1.0",
-    "oembed-parser": "github:tepiton/oembed-parser",
+    "oembed-parser": "^2.0.1",
     "slugify": "^1.6.1"
   }
 }

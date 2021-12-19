@@ -11,4 +11,4 @@ Communication is its own form of hacking. You find out what the recipient respon
 <!-- excerpt -->
 This is often simpler and dumber and without the detail you think it expects. In fact, leaving stuff out is often critical. Find out how to win.
 
-https://twitter.com/SwiftOnSecurity/status/1457805295904776202?s=20
+{% oembed "https://twitter.com/SwiftOnSecurity/status/1457805295904776202" %}
