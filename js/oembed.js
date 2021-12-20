@@ -38,8 +38,8 @@ module.exports = async function oembed(url, params) {
 
 async function flickrHandler (url, params) {
   let oembed_data = await extract(url, params)
-  let txt = oembed_data.author_name
-  let ret = imageShortcode(oembed_data.url, oembed_data.title, oembed_data.web_page, oembed_data.author_name,  sizes = "100vw")
+  let txt = `<span>${oembed_data.title} &bull; ${oembed_data.author_name}</span>`
+  let ret = imageShortcode(oembed_data.url, oembed_data.title, oembed_data.web_page, txt,  sizes = "100vw")
 
   return ret
 }
