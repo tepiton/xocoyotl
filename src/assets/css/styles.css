@@ -89,7 +89,7 @@ a:hover {
 
 .one-col-grid {
   display: grid;
-  grid-template-columns: minmax(1rem, 1.3fr) minmax(25ch, 72ch) minmax(1rem, 1.3fr);
+  grid-template-columns: minmax(1rem, 1.3fr) minmax(25ch, 66ch) minmax(1rem, 1.3fr);
   grid-template-rows: auto;
   grid-row-gap: inherit;
   grid-column-gap: inherit;
@@ -229,11 +229,12 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1.125em;
-  color: var(--color-heading);
-  text-decoration: underline solid;
+  color: var(--color-logo);
+  text-decoration: none;
+  /* text-decoration: underline solid;
   text-decoration-color: var(--color-background-alt);
   text-decoration-thickness: .02px;
-  text-underline-offset: 2px;
+  text-underline-offset: 2px; */
   margin: 0 0 .325em 0;
   line-height: 1.2;
 
@@ -247,6 +248,10 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 .tepiton article header a:hover {
   text-decoration-color: var(--color-heading-alt);
+  text-decoration: solid underline;
+  text-decoration-thickness: .02px;
+  text-underline-offset: 2px;
+
 }
 
 
@@ -339,7 +344,7 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 .post h1 {
   font-family: var(--font-heading);
-  color: var(--color-heading);
+  color: var(--color-logo);
   font-size: 2em;
   font-weight: 600;
   margin: 0;
@@ -355,7 +360,7 @@ h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
 
 .post h1 a {
   text-decoration: none;
-  color: var(--color-heading);
+  color: var(--color-logo);
 }
 
 figure {

@@ -72,8 +72,8 @@ async function  nytHandler (url, params) {
 async function defaultHandler (url, params) {
     let oembed_data = await extract(url, params)
     let embed_html = oembed_data.html
-    console.log('\n')
-    console.log(url, params)
-    console.log(JSON.stringify(oembed_data, null, 2))
+    // console.log('\n')
+    // console.log(url, params)
+    // console.log(JSON.stringify(oembed_data, null, 2))
     return embed_html
 }
